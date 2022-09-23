@@ -78,47 +78,27 @@ $(document).ready(() => {
 
   }
 
-  function verificaCPFCadastrados(cpf){
+  $('#btnForm').on('click', () => {
 
-    $.ajax({
-      type: 'post',
-      url: 'app.php',
-      dataType: 'json',
-      success: (dados) => {
-        let cadastros = dados[1];
-        for (let i = 0; i < cadastros.length; i++) {
-          if(cadastros[i][0] == cpf){
-            return true;
-          }
-        }
-      },
-      error: (erro) => {
-        console.log(erro);
+    let cpf_cnpjInput = $('#cpf_cnpj').val().replace(/[^0-9]/g, '').split('');
+    
+    if(cpf_cnpjInput.length == 11){
+
+      $('#cpf_cnpj').mask('999.999.999-99');
+      let resultadoValidacaoCPF = validacaoCPF(cpf_cnpjInput);
+
+      if(resultadoValidacaoCPF){
+        $('$res').addClass('text-success');
+        $('$res').addClass('O CPF');
+
       }
-    })
-    
-    return false;
 
-  }
-
-  $('#cpf').keyup((e) => {
-
-    let tam = $(e.target).val();
-
-    if(tam.length > 14) {
-      let txt = $(e.target).val();
-      txt = txt.slice(0, -1);
-      $(e.target).val(txt);
     }
-  })
-
-  $('#cpf').blur((e) => {
-
-    let cpfInput = $(e.target).val().replace(/[^0-9]/g, '').split('');
     
-    $('#cpf').mask('999.999.999-99');
+    /*  
+    
 
-    let resultadoValidacaoCPF = validacaoCPF(cpfInput);
+    
     
     if(!resultadoValidacaoCPF){
       $(e.target).addClass('is-invalid');
@@ -227,47 +207,11 @@ $(document).ready(() => {
 
   })
 
-  
-
-  $('#btnForm').on('click', (e) => {
-
-    e.preventDefault();
-
-    let dadosForm = $('form').serialize();
-    // console.log(dadosForm);
-
-    $.ajax({
-      type: 'post',
-      url: 'app.php',
-      data: dadosForm,
-      dataType: 'json',
-      success: (dados) => {
-        console.log(dados);
-        $('.modal').show();
-      },
-      error: (erro) => {
-        console.log(erro);
-      }
-    })
-  })
-
   $('.hideModal').on('click', () => {
     $('.modal').hide();
   })
+  
+  */
 
-  $.ajax({
-    type: 'post',
-    url: 'app.php',
-    dataType: 'json',
-    success: (dados) => {
-      let cadastros = dados[1];
-      for (let i = 0; i < cadastros.length; i++) {
-        $('tbody').append(`<tr><td>${cadastros[i][0]}</td><td>${cadastros[i][1]}</td><td>${cadastros[i][2]}</td></tr>`)
-      }
-    },
-    error: (erro) => {
-      console.log(erro);
-    }
   })
-
 })
