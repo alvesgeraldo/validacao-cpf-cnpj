@@ -11,13 +11,16 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
   
   <script src="script.js"></script>
+  <script src="geradorCPF.js"></script>
   <title>Validação de CPF e CNPJ</title>
 </head>
 <body>
  
   <div class="container d-flex justify-content-center flex-column mt-5">
-    <div class="mb-5">
-      <h2 class="text-center">Validação de CPF ou CNPJ</h2>
+    <div class="mb-5 text-center">
+      <h2>CPF -- CNPJ</h2>
+      <h5>Validação de um número de CPF ou CNPJ</h5>
+      <h5>Gere uma numeração de CPF válida</h5>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="col-md-6">
@@ -25,9 +28,21 @@
             <input id="cpf_cnpj" type="text" name="cpf" placeholder="Digite o CPF ou CNPJ" class="form-control" pattern="([0-9]{14})"/>
           </div>
       </div>
+    </div>
+    <div class="row d-flex justify-content-center">
       <div class="col-md-2 d-flex justify-content-center">
         <div class="form-group">
           <button id="btnForm" type="submit" class="btn btn-primary">Validar</button>
+        </div>
+      </div>
+      <div class="col-md-2 d-flex justify-content-center">
+        <div class="form-group">
+          <button id="btnGerador" type="submit" class="btn btn-primary">Gerar CPF</button>
+        </div>
+      </div>
+      <div class="col-md-2 d-flex justify-content-center">
+        <div class="form-group">
+          <button id="btnCopiar" type="submit" class="btn btn-primary">Copiar</button>
         </div>
       </div>
     </div>
