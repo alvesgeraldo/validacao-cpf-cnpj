@@ -181,7 +181,7 @@ $(document).ready(() => {
     
       case 14:
         
-      $('#cpf_cnpj').mask('99.999.999/9999-99');
+        $('#cpf_cnpj').mask('99.999.999/9999-99');
         let resultadoValidacaoCNPJ = validacaoCNPJ(cpf_cnpjInput);
         
         if(resultadoValidacaoCNPJ){
@@ -205,37 +205,5 @@ $(document).ready(() => {
     })
     
     
-    /*  
-
-
-  
-    $('#cpf').blur((e) => {
-  
-      let cnpjInput = $(e.target).val().replace(/[^0-9]/g, '').split('');
-  
-      $(e.target).mask('99.999.999/9999-99');
-  
-      let resultadoValidacao = validacaoCNPJ(cnpjInput);
-  
-      if (!resultadoValidacao) {
-        $(e.target).addClass('is-invalid');
-        $('#msg').html('CNPJ inválido');
-      } else {
-        $(e.target).removeClass('is-invalid');
-        $('#msg').html('');
-      }
-  
-      
-  
-    })
-
-  })
-
-  $('.hideModal').on('click', () => {
-    $('.modal').hide();
-  })
-  
-  */
-
   })
 })
