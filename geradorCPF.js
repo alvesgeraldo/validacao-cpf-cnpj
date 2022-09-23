@@ -67,7 +67,7 @@ $(document).ready(() => {
 
     let txt = document.getElementById('cpf_cnpj');
     txt.select();
-    document.execCommand("copy");
+    navigator.clipboard.writeText(txt.value);
 
   })
 

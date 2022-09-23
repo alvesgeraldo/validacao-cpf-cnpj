@@ -200,7 +200,7 @@ $(document).ready(() => {
 
       $('#res').html('');
       $('#cpf_cnpj').unmask();
-      $('#cpf_cnpj').val('');
+      
   
     })
     
